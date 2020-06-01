@@ -1,8 +1,5 @@
-<h1>Sign Up</h1>
-<%= form_for @user do |f|%>
-  <%= f.label :name%><br>
-  <%= f.text_field :name%><br>
-  <%= f.label :email%><br>
-  <%= f.test_field :email%><br>
-  <%= f.submit %>
-<%end%>
+<h1>New User</h1>
+
+<%= render 'form', user: @user %>
+
+<%= link_to 'welcome' %>
