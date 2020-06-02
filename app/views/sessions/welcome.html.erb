@@ -1,28 +1,7 @@
 <h1>Welcome</h1>
 <% if logged_in? %>
-    <h1>What's Up, <%= current_user.name %></h1>
+    <h1>What's Up, <%= link_to "#{current_user.name}", "/users/#{current_user.id}" %></h1>
     <%= link_to "Logout", '/logout', method: :destroy%>
-
-    <% current_user.events.each do | event | %>
-        <div class="box">
-            <article class="media">
-                <div class="media-left">
-                    <figure class="image is-64x64">
-                        <img src="https://bulma.io/images/placeholders/64x64.png" alt="">
-                    </figure>
-                </div>   
-                <div class="media-content">
-                    <div class="content">
-                    <strong><%= event.title %></strong><br />
-                    <small><%= event.description %></small><br />
-                    <small><%= event.date %></small><br />
-                    <p><%= event.user.name %></p>
-                    </div>
-                </div>
-            </article>
-        </div>
-        
-    <% end %>
 <%else%>
     <%= button_to "Login", '/login', method: :get%>
     <%= button_to "Sign Up", '/users/new', method: :get%>
