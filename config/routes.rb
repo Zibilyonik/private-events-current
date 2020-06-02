@@ -3,10 +3,6 @@ Rails.application.routes.draw do
   get 'events/show'
   get 'events/new'
   get 'events/create'
-  get 'event/index'
-  get 'event/show'
-  get 'event/new'
-  get 'event/create'
   resources :users
   resources :sessions
   resources :events
