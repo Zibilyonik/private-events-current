@@ -18,3 +18,12 @@
   <%= @event.date %>
 </p>
 
+<% @event.attendees.each do |attendee| %>
+
+  <div class="content">
+    <strong><%= attendee.name %></strong><br />
+    <small><%= attendee.email %></small><br />
+  </div>
+
+<% end %>
+

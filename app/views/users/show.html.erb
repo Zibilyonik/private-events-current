@@ -31,5 +31,14 @@
     
 <% end %>
 
+<% @user.attended_events.each do | att_event | %>
+    <div class="content">
+        <strong><%= att_event.title %></strong><br />
+        <small><%= att_event.description %></small><br />
+        <small><%= att_event.date %></small><br />
+        <p><%= att_event.creator.name %></p>
+    </div>
+<% end %>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
