@@ -96,7 +96,9 @@ GEM
       http_parser.rb (~> 0.6.0)
     erubi (1.9.0)
     eventmachine (1.2.7)
+    eventmachine (1.2.7-x64-mingw32)
     ffi (1.12.2)
+    ffi (1.12.2-x64-mingw32)
     formatador (0.2.5)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -137,11 +139,13 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.14.1)
     msgpack (1.3.3)
+    msgpack (1.3.3-x64-mingw32)
     multi_json (1.14.1)
     nenv (0.3.0)
     nio4r (2.5.2)
     nokogiri (1.11.0.rc2)
       mini_portile2 (~> 2.4.0)
+    nokogiri (1.11.0.rc2-x64-mingw32)
     notiffany (0.1.3)
       nenv (~> 0.1)
       shellany (~> 0.0)
@@ -196,6 +200,8 @@ GEM
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.3.0)
       ffi (~> 1.9)
+    sassc (2.3.0-x64-mingw32)
+      ffi (~> 1.9)
     sassc-rails (2.1.2)
       railties (>= 4.0.0)
       sassc (>= 2.0)
@@ -229,6 +235,8 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
+    tzinfo-data (1.2020.1)
+      tzinfo (>= 1.0.0)
     warden (1.2.8)
       rack (>= 2.0.6)
     web-console (4.0.2)
@@ -253,6 +261,7 @@ GEM
 
 PLATFORMS
   ruby
+  x64-mingw32
 
 DEPENDENCIES
   better_errors (~> 2.7, >= 2.7.1)

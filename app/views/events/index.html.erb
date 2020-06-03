@@ -1,2 +1,21 @@
 <h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+<% @events.each do | event | %>
+    <div class="box">
+        <article class="media">
+            <div class="media-left">
+                <figure class="image is-64x64">
+                    <img src="https://bulma.io/images/placeholders/64x64.png" alt="">
+                </figure>
+            </div>   
+            <div class="media-content">
+                <div class="content">
+                <strong><%= event.title %></strong><br />
+                <small><%= event.description %></small><br />
+                <small><%= event.date %></small><br />
+                <p><%= event.creator.name %></p>
+                </div>
+            </div>
+        </article>
+    </div>
+    
+<% end %>
