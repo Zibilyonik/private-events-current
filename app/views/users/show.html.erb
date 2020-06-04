@@ -13,6 +13,8 @@
   <%= @user.email %>
 </h2>
 
+<%= link_to "Create New Event", new_event_path %>
+
 <h3>Upcoming Events</h3>
 
 <% @user_upcoming_events.each do | event | %>
