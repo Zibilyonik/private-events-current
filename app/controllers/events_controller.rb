@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.all
+    @upcoming_events = Event.where("date > ?", Time.now)
+    @past_events = Event.where("date < ?", Time.now)
   end
 
   def show
@@ -22,6 +23,11 @@ class EventsController < ApplicationController
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def attend
+    @event.attendees << current_user
+    @event.save!
   end
 
   private

@@ -18,12 +18,16 @@
   <%= @event.date %>
 </p>
 
+
+<h1>Attending:</h1>
 <% @event.attendees.each do |attendee| %>
 
   <div class="content">
-    <strong><%= attendee.name %></strong><br />
+    <small><%= attendee.name %></small><br />
     <small><%= attendee.email %></small><br />
   </div>
 
 <% end %>
+
+<%= button_to 'Attend', attend_event_path(@event), method: :post, confirm: 'really?' %>
 
