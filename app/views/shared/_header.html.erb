@@ -1,0 +1,10 @@
+
+<% if logged_in? %>
+    <h1>What's Up, <%= link_to "#{current_user.name}", "/users/#{current_user.id}" %></h1>
+    <%= link_to "Logout", '/logout', method: :destroy%>
+<%else%>
+    <%= button_to "Login", '/login', method: :get%>
+    <%= button_to "Sign Up", '/users/new', method: :get%>
+<%end%>
+<span><%= link_to "Events", events_path %></span>
+<span><%= link_to "Users", users_path %></span>
