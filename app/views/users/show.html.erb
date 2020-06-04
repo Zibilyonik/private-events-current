@@ -66,10 +66,10 @@
             </div>   
             <div class="media-content">
                 <div class="content">
-                <strong><%= att_event.title %></strong><br />
+                <strong><%= link_to att_event.title, event_path(att_event.id) %></strong><br />
                 <small><%= att_event.description %></small><br />
                 <small><%= att_event.date %></small><br />
-                <p><%= att_event.creator.name %></p>
+                <p><%= link_to att_event.creator.name, user_path(att_event.creator.id) %></p>
                 </div>
             </div>
         </article>
@@ -77,4 +77,5 @@
 <% end %>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Delete', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
 <%= link_to 'Back', users_path %>

@@ -1,5 +1,5 @@
 <h1>Upcoming Events</h1>
-<% @upcoming_events.each do | event | %>
+<% @events.upcoming.each do | event | %>
     <div class="box">
         <article class="media">
             <div class="media-left">
@@ -9,10 +9,10 @@
             </div>   
             <div class="media-content">
                 <div class="content">
-                <strong><%= event.title %></strong><br />
+                <strong><%= link_to event.title, event_path(event.id) %></strong><br />
                 <small><%= event.description %></small><br />
                 <small><%= event.date %></small><br />
-                <p><%= event.creator.name %></p>
+                <p><%= link_to event.creator.name, user_path(event.creator.id) %></p>
                 </div>
             </div>
         </article>
@@ -21,7 +21,7 @@
 <% end %>
 
 <h1>Past Events</h1>
-<% @past_events.each do | event | %>
+<% @events.past.each do | event | %>
     <div class="box">
         <article class="media">
             <div class="media-left">
@@ -31,10 +31,10 @@
             </div>   
             <div class="media-content">
                 <div class="content">
-                <strong><%= event.title %></strong><br />
+                <strong><%= link_to event.title, event_path(event.id) %></strong><br />
                 <small><%= event.description %></small><br />
                 <small><%= event.date %></small><br />
-                <p><%= event.creator.name %></p>
+                <p><%= link_to event.creator.name, user_path(event.creator.id) %></p>
                 </div>
             </div>
         </article>
