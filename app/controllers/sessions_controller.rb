@@ -1,23 +1,21 @@
 class SessionsController < ApplicationController
-  def new
-  end
+  def new; end
 
   def create
     @user = User.find_by(email: params[:email])
     if @user
-       reset_session
-       log_in @user
-       redirect_to '/welcome'
+      reset_session
+      log_in @user
+      redirect_to '/welcome'
     else
-       redirect_to '/login'
+      redirect_to '/login'
     end
   end
 
-  def login
-  end
+  def login; end
 
-  def welcome
-  end
+  def welcome; end
+
   def destroy
     log_out
     redirect_to '/welcome'

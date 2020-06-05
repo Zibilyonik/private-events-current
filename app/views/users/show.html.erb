@@ -15,6 +15,8 @@
 
 <%= link_to "Create New Event", new_event_path %>
 
+<h1>User's Events</h1>
+
 <h3>Upcoming Events</h3>
 
 <% @user_upcoming_events.each do | event | %>
@@ -59,9 +61,11 @@
     </div>  
 <% end %>
 
-<h3>Attended Events</h3>
+<h1>Attended Events</h1>
 
-<% @user.attended_events.each do | att_event | %>
+<h3>Upcoming Events You're Attending</h3>
+
+<% @user_attended_upcoming.each do | att_event | %>
     <div class="box">
         <article class="media">
             <div class="media-left">
@@ -81,6 +85,28 @@
     </div>
 <% end %>
 
+<h3>Past Events You've Attended</h3>
+
+<% @user_attended_past.each do | att_event | %>
+    <div class="box">
+        <article class="media">
+            <div class="media-left">
+                <figure class="image is-64x64">
+                    <img src="https://bulma.io/images/placeholders/64x64.png" alt="">
+                </figure>
+            </div>   
+            <div class="media-content">
+                <div class="content">
+                <strong><%= link_to att_event.title, event_path(att_event.id) %></strong><br />
+                <small><%= att_event.description %></small><br />
+                <small><%= att_event.date %></small><br />
+                <p><%= link_to att_event.creator.name, user_path(att_event.creator.id) %></p>
+                </div>
+            </div>
+        </article>
+    </div>
+<% end %>
+
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Delete', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
 <%= link_to 'Back', users_path %>

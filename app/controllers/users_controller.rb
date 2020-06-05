@@ -11,8 +11,10 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-    @user_upcoming_events = @user.events.where("date > ?", Time.current)
-    @user_past_events = @user.events.where("date < ?", Time.current)
+    @user_upcoming_events = @user.events.where('date > ?', Time.current)
+    @user_past_events = @user.events.where('date < ?', Time.current)
+    @user_attended_upcoming = @user.attended_events.where('date > ?', Time.current)
+    @user_attended_past = @user.attended_events.where('date < ?', Time.current)
   end
 
   # GET /users/new
@@ -21,8 +23,7 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /users
   # POST /users.json
@@ -31,10 +32,10 @@ class UsersController < ApplicationController
     if @user.save
       reset_session
       log_in @user
-      flash[:success] = "Welcome!"
+      flash[:success] = 'Welcome!'
       redirect_to @user
     else
-    redirect_to '/welcome' 
+      redirect_to '/welcome'
     end
   end
 
@@ -63,13 +64,14 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def user_params
-      params.require(:user).permit(:name, :email)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def user_params
+    params.require(:user).permit(:name, :email)
+  end
 end
