@@ -25,8 +25,17 @@ class EventsController < ApplicationController
   end
 
   def attend
+    @event = Event.find(params[:id])
     @event.attendees << current_user
     @event.save!
+    redirect_to event_path(@event)
+  end
+
+  def withdraw
+    @event = Event.find(params[:id])
+    @event.attendees.delete(current_user)
+    @event.save!
+    redirect_to event_path(@event)
   end
 
   private
