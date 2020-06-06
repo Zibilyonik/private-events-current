@@ -18,9 +18,9 @@ module SessionsHelper
 
   def headers
     if logged_in?
-     return "header-user"
+      'header-user'
     else
-     return "header-guest"
+      'header-guest'
     end
   end
 end
