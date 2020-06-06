@@ -28,7 +28,7 @@ To access the running server, you can visit localhost:3000 or 127.0.0.1:3000 (th
 ## Contributing
 
 You're welcome to inform me about any issues you may have found by checking the [issues](https://github.com/Zibilyonik/private-events-current/issues) page.
-You can also let me know if you have any feature requests via the links you can find on the [Contributors](https://github.com/Zibilyonik/private-events-current#Contributors) section.
+You can also let me know if you have any feature requests via the links you can find on the [Contributors](https://github.com/Zibilyonik/private-events-current/tree/users#Contributors) section.
 
 ## Show Your Support
 
