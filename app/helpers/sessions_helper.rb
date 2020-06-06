@@ -15,4 +15,12 @@ module SessionsHelper
     reset_session
     @current_user = nil
   end
+
+  def headers
+    if logged_in?
+     return "header-user"
+    else
+     return "header-guest"
+    end
+  end
 end
