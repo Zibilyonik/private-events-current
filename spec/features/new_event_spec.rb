@@ -2,12 +2,17 @@ require 'spec_helper'
 
 RSpec.describe 'User Events', type: :feature do
   before :each do
-    @user = User.create(email: 'pot@ato.com', name: 'Potato')
+    if !User.first.nil?
+      @user = User.first
+    else
+      @user = User.create(email: 'test@test.com', name: 'Potato')
+      @user.save
+    end
   end
 
   it 'creates new event' do
     visit '/sessions/new'
-    fill_in 'email', with: 'pot@ato.com'
+    fill_in 'email', with: @user.email
     click_button 'Login'
     visit '/events/new'
     fill_in 'Title', with: 'This Event'
@@ -19,5 +24,20 @@ RSpec.describe 'User Events', type: :feature do
     click_on 'Create Event'
     visit events_path
     expect(page).to have_content 'This Event'
+  end
+
+  it 'changes the attendance of event' do
+    @event = Event.first
+    visit '/sessions/new'
+    fill_in 'email', with: @user.email
+    click_button 'Login'
+    visit event_path(@event.id)
+    if page.has_selector?(:link_or_button, 'Attend')
+      click_on 'Attend'
+      expect(page).to have_content @user.email
+    else
+      click_on 'Withdraw'
+      expect(page).to_not have_content @user.email
+    end
   end
 end

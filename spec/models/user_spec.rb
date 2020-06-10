@@ -11,7 +11,7 @@ RSpec.describe User, type: :model do
     expect(user).to_not be_valid
   end
   it 'should save with all validations provided' do
-    user = User.new(name: 'Potato', email: 'pot@ato.com')
+    user = User.new(name: 'Potato', email: "#{SecureRandom.alphanumeric(5)}@email.com")
     expect(user).to be_valid
   end
 end
