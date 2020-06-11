@@ -1,0 +1,46 @@
+
+<%= render "shared/header"%>
+
+<h1>Upcoming Events</h1>
+<% @events.upcoming.each do | event | %>
+    <div class="box">
+        <article class="media">
+            <div class="media-left">
+                <figure class="image is-64x64">
+                    <img src="https://bulma.io/images/placeholders/64x64.png" alt="">
+                </figure>
+            </div>   
+            <div class="media-content">
+                <div class="content">
+                <strong><%= link_to event.title, event_path(event.id) %></strong><br />
+                <small><%= event.description %></small><br />
+                <small><%= event.date %></small><br />
+                <p><%= link_to event.creator.name, user_path(event.creator.id) %></p>
+                </div>
+            </div>
+        </article>
+    </div>
+    
+<% end %>
+
+<h1>Past Events</h1>
+<% @events.past.each do | event | %>
+    <div class="box">
+        <article class="media">
+            <div class="media-left">
+                <figure class="image is-64x64">
+                    <img src="https://bulma.io/images/placeholders/64x64.png" alt="">
+                </figure>
+            </div>   
+            <div class="media-content">
+                <div class="content">
+                <strong><%= link_to event.title, event_path(event.id) %></strong><br />
+                <small><%= event.description %></small><br />
+                <small><%= event.date %></small><br />
+                <p><%= link_to event.creator.name, user_path(event.creator.id) %></p>
+                </div>
+            </div>
+        </article>
+    </div>
+    
+<% end %>

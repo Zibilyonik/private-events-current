@@ -1,0 +1,38 @@
+
+<%= render "shared/header"%>
+
+<h1>
+  <strong>Title:</strong>
+  <%= @event.title%>
+</h1>
+
+<p>
+  <strong>Description:</strong>
+  <%= @event.description %>
+</p>
+
+<p>
+  <strong>Creator:</strong>
+  <%= @event.creator.name %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @event.date %>
+</p>
+
+
+<h1>Attending:</h1>
+<% @event.attendees.each do |attendee| %>
+
+  <div class="content">
+    <small><%= attendee.name %></small><br />
+    <small><%= attendee.email %></small><br />
+  </div>
+
+<% end %>
+
+<%= attending(@event) %>
+
+<%= link_to 'Back', events_path %>
+
